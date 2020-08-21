@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/Impreza-child/lib/jquery.live-polyfill"]
+	path = wp-content/themes/Impreza-child/lib/jquery.live-polyfill
+	url = https://github.com/PrestaShop/jquery.live-polyfill
