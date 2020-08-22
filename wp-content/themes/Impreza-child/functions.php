@@ -1,4 +1,5 @@
 <?php
+include get_stylesheet_directory() . '/inc/shortcodes.php';
 
 /**
  * Polyfills
@@ -10,3 +11,10 @@ function globalScripts () {
 }
 add_action('admin_enqueue_scripts', 'globalScripts');
 add_action('wp_enqueue_scripts', 'globalScripts');
+
+/**
+ * Theme setup
+ */
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/style.css');
+});
