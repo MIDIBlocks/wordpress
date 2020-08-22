@@ -17,4 +17,10 @@ Displays a title, optionally with a prefix defined by a `title_prefix` custom fi
 Displays a list of `notes[]note` and their `notes[]timestamp`
 
 ## `[daily-intentions]`
-Displays a list of `intentions[]intention` and their `intentions[]intention` along with ✅ or ⏳ depending on `intentions[]completed`
+Displays a list of `intentions[]intention` and their `intentions[]intention` along with ✅ or ⏳ depending on `intentions[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
+
+## `[daily-goals]`
+Displays a list of `goals[]goal` and their `goals[]goal` along with ✅ or ⏳ depending on `goals[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
+
+## `[daily-reminders]`
+Displays a list of `reminders[]reminder` and their `reminders[]reminder` along with ✅ or ⏳ depending on `reminders[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
