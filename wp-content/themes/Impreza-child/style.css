@@ -6,3 +6,7 @@ Author:	UpSolution
 Theme URI: http://impreza.us-themes.com/
 Author URI: http://us-themes.com/
 */
+
+.daily-notes-list time {
+  font-weight: bold;
+}
