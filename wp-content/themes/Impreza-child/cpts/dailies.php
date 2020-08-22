@@ -8,8 +8,10 @@ add_shortcode('daily-notes', function () {
   global $post;
 
   $notes = get_field('notes');
+  if (!$notes) return;
 
   ob_start(); ?>
+    <h2>Notes</h2>
     <ul class="daily-notes-list">
       <?php foreach ($notes as $note): ?>
         <li class="daily-notes-list-item">
