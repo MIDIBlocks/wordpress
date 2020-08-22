@@ -7,6 +7,13 @@ Theme URI: http://impreza.us-themes.com/
 Author URI: http://us-themes.com/
 */
 
+/* Dailies */
 .daily-notes-list time {
   font-weight: bold;
+}
+
+.daily-intentions-list-item td:first-child {
+  padding-left: 0;
+  padding-right: 0;
+  width: 24px;
 }

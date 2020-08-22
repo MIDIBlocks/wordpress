@@ -15,3 +15,6 @@ Displays a title, optionally with a prefix defined by a `title_prefix` custom fi
 
 ## `[daily-notes]`
 Displays a list of `notes[]note` and their `notes[]timestamp`
+
+## `[daily-intentions]`
+Displays a list of `intentions[]intention` and their `intentions[]intention` along with ✅ or ⏳ depending on `intentions[]completed`
