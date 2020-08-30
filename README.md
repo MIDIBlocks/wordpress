@@ -1,26 +1,14 @@
-# Dependencies
-- [Impreza Theme](https://themeforest.net/item/impreza-retina-responsive-wordpress-theme/6434280)
-- [Advanced Custom Fields PRO](https://advancedcustomfields.com/)
-- Custom post types (can be through [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/))
-  - Dailies
-
 # Setup
-- Install Impreza, then install and activate this child theme
-- Install Advanced Custom Fields and import `./wp-content/themes/Impreza-child/setup/acf-export.json`
+The following steps will get you a [WordPress](https://localwp.com/) theme up and running that's functionally similar to ours at https://midiblocks.com
 
-# Shortcodes
+## Dependencies
+- Install [Impreza Theme](https://themeforest.net/item/impreza-retina-responsive-wordpress-theme/6434280)
+- Active Custom Post Type UI, WP Bakery, and Custom Post Type (CPT) UI by going to `/wp-admin/admin.php?page=us-addons`
+  - Import `./setup/cptui-export.json` into CPT UI here: `/wp-admin/admin.php?page=cptui_tools`
+- Install the [PRO versino of Advanced Custom Fields](https://advancedcustomfields.com/) - Then import `./setup/acf-export.json` by going to `/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools`
 
-## `[title-with-prefix]`
-Displays a title, optionally with a prefix defined by a `title_prefix` custom field.
+## Shortcodes
+### `[midiblocks-app]`
+Creates a fullscreen Midiblocks [programmable MIDI interface](https://github.com/midiblocks/midiblocks).
 
-## `[daily-notes]`
-Displays a list of `notes[]note` and their `notes[]timestamp`
-
-## `[daily-intentions]`
-Displays a list of `intentions[]intention` and their `intentions[]intention` along with ✅ or ⏳ depending on `intentions[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
-
-## `[daily-goals]`
-Displays a list of `goals[]goal` and their `goals[]goal` along with ✅ or ⏳ depending on `goals[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
-
-## `[daily-reminders]`
-Displays a list of `reminders[]reminder` and their `reminders[]reminder` along with ✅ or ⏳ depending on `reminders[]completed`. If the current date is after the posted date, then ❌ replaced ⏳
+- Blocks are stored in the `block` CPT
