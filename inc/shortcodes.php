@@ -91,3 +91,11 @@ add_shortcode('midiblocks-app', function () {
   wp_reset_postdata();
   return ob_get_clean();
 });
+
+/**
+ * Echos the Midiblocks app version
+ */
+add_shortcode('midiblocks-app-version', function () {
+  global $midiblocksVersion;
+  return $midiblocksVersion;
+});
