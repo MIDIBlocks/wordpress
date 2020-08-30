@@ -1,4 +1,12 @@
 <?php
+/**
+ * Config
+ */
+$midiblocksVersion = '0.0.2';
+
+/**
+ * Dependencies
+ */
 include get_stylesheet_directory() . '/inc/shortcodes.php';
 include get_stylesheet_directory() . '/cpts/dailies.php';
 
@@ -17,5 +25,5 @@ add_action('wp_enqueue_scripts', 'globalScripts');
  * Theme setup
  */
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/style.css', null, '20-08-29-1');
+  wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/style.css', null, '20-08-30-1');
 });

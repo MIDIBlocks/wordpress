@@ -82,9 +82,10 @@ add_shortcode('breadcrumbs', function () {
  */
 add_shortcode('midiblocks-app', function () {
   global $post;
+  global $midiblocksVersion;
 
   ob_start(); ?>
-    <iframe class="midiblocks-app" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/0.0.1/index.html">
+    <iframe class="midiblocks-app" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/<?= $midiblocksVersion ?>/index.html">
     </iframe>
   <?php
   wp_reset_postdata();
