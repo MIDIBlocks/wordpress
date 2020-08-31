@@ -8,6 +8,7 @@ $midiblocksVersion = '0.0.2';
  * Dependencies
  */
 include get_stylesheet_directory() . '/inc/shortcodes.php';
+include get_stylesheet_directory() . '/inc/shortcodes/midiblocks.php';
 include get_stylesheet_directory() . '/cpts/dailies.php';
 
 /**

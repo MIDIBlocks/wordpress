@@ -75,27 +75,3 @@ add_shortcode('breadcrumbs', function () {
   wp_reset_postdata();
   return ob_get_clean();
 });
-
-/**
- * Display a fullscreen Midiblocks app
- * @todo version the url
- */
-add_shortcode('midiblocks-app', function () {
-  global $post;
-  global $midiblocksVersion;
-
-  ob_start(); ?>
-    <iframe class="midiblocks-app" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/<?= $midiblocksVersion ?>/index.html">
-    </iframe>
-  <?php
-  wp_reset_postdata();
-  return ob_get_clean();
-});
-
-/**
- * Echos the Midiblocks app version
- */
-add_shortcode('midiblocks-app-version', function () {
-  global $midiblocksVersion;
-  return $midiblocksVersion;
-});
