@@ -29,12 +29,15 @@ add_action('rest_api_init', function ($data) {
       $posts = get_posts($query);
 
       // Build the response
-      $json = [];
+      $json = ['blocks' => []];
       foreach ($posts as $post) {
         setup_postdata($post);
 
-        $json[] = [
-          'title' => $post->post_title
+        $json['blocks'][] = [
+          'title' => $post->post_title,
+          'short_description' => get_field('short_description', $post->ID),
+          'block_definition' => get_field('block_definition', $post->ID),
+          'generator_stub' => get_field('generator_stub', $post->ID)
         ];
       }
 
