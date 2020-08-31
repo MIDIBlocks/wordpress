@@ -12,14 +12,15 @@ add_shortcode('midiblocks-app', function ($atts) {
   global $midiblocksVersion;
 
   $atts = shortcode_atts([
-    'path' => '/'
+    'path' => '/',
+    'fullscreen' => false
   ], $atts);
   $path = esc_attr($atts['path']);
 
   $path = str_replace(':id', $post->ID, $path);
   
   ob_start(); ?>
-    <iframe class="midiblocks-app" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/<?= $midiblocksVersion ?>/index.html/#<?= $path ?>">
+    <iframe class="midiblocks-app <?= $atts['fullscreen'] ? 'fullscreen' : ''?>" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/<?= $midiblocksVersion ?>/index.html#<?= $path ?>">
     </iframe>
   <?php
   wp_reset_postdata();
