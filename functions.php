@@ -10,8 +10,9 @@ $midiblocksVersion = '0.0.3';
 include get_stylesheet_directory() . '/inc/shortcodes.php';
 include get_stylesheet_directory() . '/inc/shortcodes/midiblocks.php';
 include get_stylesheet_directory() . '/inc/api/block.php';
-include get_stylesheet_directory() . '/inc/cpts/dailies.php';
-include get_stylesheet_directory() . '/inc/cpts/api.php';
+include get_stylesheet_directory() . '/inc/cpt/dailies.php';
+include get_stylesheet_directory() . '/inc/cpt/api.php';
+include get_stylesheet_directory() . '/inc/cpt/block.php';
 
 /**
  * Polyfills

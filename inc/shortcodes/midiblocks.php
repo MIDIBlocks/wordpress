@@ -23,7 +23,6 @@ add_shortcode('midiblocks-app', function ($atts) {
     <iframe class="midiblocks-app <?= $atts['fullscreen'] ? 'fullscreen' : ''?>" src="<?= get_stylesheet_directory_uri() ?>/midiblocks/v/<?= $midiblocksVersion ?>/index.html#<?= $path ?>">
     </iframe>
   <?php
-  wp_reset_postdata();
   return ob_get_clean();
 });
 
