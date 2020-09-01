@@ -45,6 +45,9 @@ Author URI: http://us-themes.com/
 .text-shadow, .text-shadow * {
 	text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
 }
+.p-0 {
+	padding: 0 !important;
+}
 
 @media (max-width: 768px) {
 	.mobile-invert-flex > div > .vc_row {

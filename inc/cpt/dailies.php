@@ -116,3 +116,35 @@ add_shortcode('daily-reminders', function () {
   wp_reset_postdata();
   return ob_get_clean();
 });
+
+/**
+ * Displays Daily ideas and their completion status
+ * @use [daily-ideas]
+ */
+add_shortcode('daily-ideas', function () {
+  global $post;
+
+  $ideas = get_field('ideas');
+  $incompleteIcon = strtotime(get_the_date()) > time() + 86400 ? '❌' : '⏳';
+
+  ob_start(); ?>
+    <?php if ($ideas): ?>
+      <h2>ideas</h2>
+    
+      <table class="daily-ideas-list">
+        <?php foreach ($ideas as $idea): ?>
+          <tr class="daily-ideas-list-item">
+            <td>
+              <?= $idea['completed'] ? '✅' : $incompleteIcon ?>
+            </td>
+            <td>
+              <?= $idea['idea'] ?>
+            </td>
+          </tr>
+        <?php endforeach ?>
+      </table>
+    <?php endif ?>
+  <?php
+  wp_reset_postdata();
+  return ob_get_clean();
+});
