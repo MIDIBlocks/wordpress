@@ -29,6 +29,6 @@ add_action('wp_enqueue_scripts', 'globalScripts');
  * Theme setup
  */
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/style.css', null, '20-08-31-1');
+  wp_enqueue_style('theme', get_stylesheet_directory_uri() . '/style.css', null, '20-08-31-2');
   wp_reset_postdata();
 });
