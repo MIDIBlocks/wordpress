@@ -4,16 +4,14 @@
  * Returns data needed to recreate a block inside of Midiblocks
  * /block/{id|slug|post_title}
  */
-add_action('rest_api_init', function ($data) {
-  register_rest_route('midiblocks', '/block/(?P<id>[a-zA-Z0-9-_]+)', [
+add_action('rest_api_init', function () {
+  register_rest_route('midiblocks', '/block/(?P<id>[a-z0-9-_]+)/', [
     'methods' => 'GET',
-    'args' => [
-      'id'
-    ],
-    'callback' => function ($args) {
+    'args' => ['id'],
+    'callback' => function ($request) {
       // Defaults
       $args = shortcode_atts([
-        'id' => null
+        'id' => $request->get_param('id')
       ], $args);
 
       // Build the query
@@ -22,9 +20,9 @@ add_action('rest_api_init', function ($data) {
         'numberposts' => 1
       ];
       if (is_numeric($args['id'])) {
-        $query['include'] = [$args['id']];
+        $query['include'] = [intval($args['id'])];
       } else {
-        $query['name'] = $args['id'];
+        $query['post_name'] = $args['id'];
       }
       $posts = get_posts($query);
 
