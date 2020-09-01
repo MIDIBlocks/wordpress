@@ -56,7 +56,7 @@ add_shortcode('breadcrumbs', function () {
     'label' => $post->post_title
   ];
 
-  if (count($crumbs) < 3) {
+  if (count($crumbs) < 2) {
     return '<style>.breadcrumbs {display: none !important;}</style>';
   }
   
