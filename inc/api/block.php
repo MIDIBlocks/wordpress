@@ -12,19 +12,19 @@ add_action('rest_api_init', function ($data) {
     ],
     'callback' => function ($args) {
       // Defaults
-      $args = $atts = shortcode_atts([
+      $args = shortcode_atts([
         'id' => null
-      ], $atts);
+      ], $args);
 
       // Build the query
       $query = [
         'post_type' => 'block',
         'numberposts' => 1
       ];
-      if (is_string($args['id'])) {
-        $query['name'] = $args['id'];
+      if (is_numeric($args['id'])) {
+        $query['include'] = [$args['id']];
       } else {
-        $query['include'] = $args['id'];
+        $query['name'] = $args['id'];
       }
       $posts = get_posts($query);
 
