@@ -2,7 +2,7 @@
 /**
  * Config
  */
-$midiblocksVersion = '0.0.3';
+$midiblocksVersion = '0.0.4';
 
 /**
  * Dependencies
