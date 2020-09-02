@@ -1,4 +1,5 @@
 <?php
+// @todo Let's refactor these into one or two methods
 
 /**
  * Displays Daily Notes with timestamps
@@ -37,9 +38,12 @@ add_shortcode('daily-intentions', function () {
   global $post;
 
   $intentions = get_field('intentions');
-  $incompleteIcon = strtotime(get_the_date()) > time() + 86400 ? '❌' : '⏳';
+  if (!$intentions) return '';
+
+  $incompleteIcon = strtotime(get_the_date()) < time() + 86400 ? '❌' : '⏳';
 
   ob_start(); ?>
+    <h2>Intentions</h2>
     <table class="daily-intentions-list">
       <?php foreach ($intentions as $intention): ?>
         <tr class="daily-intentions-list-item">
@@ -65,9 +69,11 @@ add_shortcode('daily-goals', function () {
   global $post;
 
   $goals = get_field('goals');
-  $incompleteIcon = strtotime(get_the_date()) > time() + 86400 ? '❌' : '⏳';
+  if (!$goals) return '';
+  $incompleteIcon = strtotime(get_the_date()) < time() + 86400 ? '❌' : '⏳';
 
   ob_start(); ?>
+    <h2>Goals</h2>
     <table class="daily-goals-list">
       <?php foreach ($goals as $goal): ?>
         <tr class="daily-goals-list-item">
@@ -93,25 +99,24 @@ add_shortcode('daily-reminders', function () {
   global $post;
 
   $reminders = get_field('reminders');
-  $incompleteIcon = strtotime(get_the_date()) > time() + 86400 ? '❌' : '⏳';
+  if (!$reminders) return '';
+  $incompleteIcon = strtotime(get_the_date()) < time() + 86400 ? '❌' : '⏳';
 
   ob_start(); ?>
-    <?php if ($reminders): ?>
-      <h2>Reminders</h2>
-    
-      <table class="daily-reminders-list">
-        <?php foreach ($reminders as $reminder): ?>
-          <tr class="daily-reminders-list-item">
-            <td>
-              <?= $reminder['completed'] ? '✅' : $incompleteIcon ?>
-            </td>
-            <td>
-              <?= $reminder['reminder'] ?>
-            </td>
-          </tr>
-        <?php endforeach ?>
-      </table>
-    <?php endif ?>
+    <h2>Reminders</h2>
+  
+    <table class="daily-reminders-list">
+      <?php foreach ($reminders as $reminder): ?>
+        <tr class="daily-reminders-list-item">
+          <td>
+            <?= $reminder['completed'] ? '✅' : $incompleteIcon ?>
+          </td>
+          <td>
+            <?= $reminder['reminder'] ?>
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </table>
   <?php
   wp_reset_postdata();
   return ob_get_clean();
@@ -125,7 +130,8 @@ add_shortcode('daily-ideas', function () {
   global $post;
 
   $ideas = get_field('ideas');
-  $incompleteIcon = strtotime(get_the_date()) > time() + 86400 ? '❌' : '⏳';
+  if (!$ideas) return '';
+  $incompleteIcon = strtotime(get_the_date()) < time() + 86400 ? '❌' : '⏳';
 
   ob_start(); ?>
     <?php if ($ideas): ?>
